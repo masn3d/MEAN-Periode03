@@ -1,0 +1,17 @@
+extends layout
+
+block content
+	h2 #{title}
+	form(name="newjoke", action="/api/addjoke", method="post")
+		label Write joke:
+		input(type="text", name="writtenjoke")
+		br
+		each jokeType, index in jokeTypes
+			br
+			input(type="checkbox", name="checkboxes" value="#{jokeType}")
+			label #{jokeType}
+		br
+		br
+		input(type="submit", value="AddJoke")
+	br
+	a(href="http://localhost:3000/") Back to main
